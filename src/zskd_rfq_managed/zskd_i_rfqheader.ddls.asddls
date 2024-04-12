@@ -1,10 +1,11 @@
 @AbapCatalog.viewEnhancementCategory: [#NONE]
 @AccessControl.authorizationCheck: #NOT_REQUIRED
 @EndUserText.label: 'RFQ Header basic view'
+@Metadata.ignorePropagatedAnnotations: true
 
 @ObjectModel.usageType:{
     serviceQuality: #A,
-    sizeCategory: #L,
+    sizeCategory: #L, 
     dataClass: #MIXED
 }
 
@@ -18,6 +19,7 @@ define view entity ZSKD_I_RFQHeader
       ekgrp             as PurchasingGroup,
       ekorg             as PurchasingOrg,
       bukrs             as CompanyCode,
+      @Semantics.amount.currencyCode : 'Currency'
       netwr             as NetOrderValue,
       currency          as Currency
 }
